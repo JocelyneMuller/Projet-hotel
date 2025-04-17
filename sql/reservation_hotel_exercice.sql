@@ -155,8 +155,8 @@ ALTER TABLE `chambre_types`
 -- Contraintes pour la table `chambre_type_couchage`
 --
 ALTER TABLE `chambre_type_couchage`
-  ADD CONSTRAINT `chambre_type_couchage_ibfk_1` KEY (`id_type`) REFERENCES `chambre_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `chambre_type_couchage_ibfk_2` KEY (`id_couchage`) REFERENCES `couchages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `chambre_type_couchage_ibfk_1` FOREIGN KEY (`id_type`) REFERENCES `chambre_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `chambre_type_couchage_ibfk_2` FOREIGN KEY (`id_couchage`) REFERENCES `couchages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 --
