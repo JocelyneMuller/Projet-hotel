@@ -122,6 +122,45 @@ WHERE numero = '2'
 ```
 
 ---
+# Tâche 2.1 – Effet de l'option ON DELETE sur la suppression d'un enregistrement
+
+## 🔍 Expérience réalisée
+
+Lorsque j’ai exécuté la requête suivante dans phpMyAdmin :
+
+```sql
+DELETE FROM hotels WHERE id = 1;
+```
+
+L’enregistrement a bien été supprimé.
+
+
+Cela signifie que les contraintes de clé étrangère ont été définies avec l’option :
+
+```sql
+ON DELETE CASCADE
+```
+
+Grâce à cette option, **toutes les lignes liées à l’hôtel** dans d'autres tables (comme `chambres`, `tarifs`, ou `reservations`) ont été **supprimées automatiquement**.
+
+---
+
+## J'ai refait l'exercice avec l’option sur `RESTRICT`
+
+> Comportement par défaut dans MySQL
+
+La suppression a été **bloquée** avec un message d’erreur de type :
+```
+Cannot delete or update a parent row: a foreign key constraint fails
+```
+
+---
+
+## 💡 Conclusion
+
+Cette expérience montre l’**impact direct du choix de l’option `ON DELETE`** sur la **logique de suppression dans une base relationnelle** :
+- `CASCADE` : suppression automatique des dépendances
+- `RESTRICT` : protection stricte contre la suppression accidentelle
 
 ## 📌 Auteur
 
