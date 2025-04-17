@@ -163,8 +163,9 @@ ALTER TABLE `chambre_type_couchage`
 -- Contraintes pour la table `tarifs`
 --
 ALTER TABLE `tarifs`
-  ADD CONSTRAINT `tarifs_ibfk_1` KEY (`id_hotel`) REFERENCES `hotels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tarifs_ibfk_2` KEY (`id_type`) REFERENCES `chambre_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `tarifs`
+  ADD CONSTRAINT `tarifs_ibfk_1` FOREIGN KEY (`id_hotel`) REFERENCES `hotels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tarifs_ibfk_2` FOREIGN KEY (`id_type`) REFERENCES `chambre_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
